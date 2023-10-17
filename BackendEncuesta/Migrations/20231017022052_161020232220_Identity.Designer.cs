@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendEncuesta.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231017014849_161020232248")]
-    partial class _161020232248
+    [Migration("20231017022052_161020232220_Identity")]
+    partial class _161020232220_Identity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
