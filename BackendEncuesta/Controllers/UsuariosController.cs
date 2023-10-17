@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendEncuesta;
 using BackendEncuesta.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication;
 
 namespace BackendEncuesta.Controllers
 {
@@ -23,6 +26,7 @@ namespace BackendEncuesta.Controllers
 
         // GET: api/Usuarios
         [HttpGet]
+        
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
           if (_context.Usuarios == null)
