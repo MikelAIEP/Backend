@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 
 namespace BackendEncuesta
 {
-    public class ApplicationDbContext : IdentityDbContext<Usuario>
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {

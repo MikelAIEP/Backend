@@ -2,7 +2,7 @@
 
 namespace BackendEncuesta.Entities
 {
-    public class Usuario   : IdentityUser
+    public class Usuario
     {
         public int usuarioId { get; set; }
         public string nombres { get; set; }
