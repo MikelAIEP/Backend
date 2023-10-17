@@ -1,6 +1,8 @@
-﻿namespace BackendEncuesta.Entities
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace BackendEncuesta.Entities
 {
-    public class Usuario
+    public class Usuario   : IdentityUser
     {
         public int usuarioId { get; set; }
         public string nombres { get; set; }
