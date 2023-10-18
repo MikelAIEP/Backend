@@ -9,6 +9,7 @@ using BackendEncuesta;
 using BackendEncuesta.Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using BackendEncuesta.DTO;
 
 namespace BackendEncuesta.Controllers
 {
@@ -35,68 +36,33 @@ namespace BackendEncuesta.Controllers
             return await _context.Encuestas.ToListAsync();
         }
 
-        // GET: api/Encuestas/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Encuesta>> GetEncuesta(int id)
-        {
-          if (_context.Encuestas == null)
-          {
-              return NotFound();
-          }
-            var encuesta = await _context.Encuestas.FindAsync(id);
-
-            if (encuesta == null)
-            {
-                return NotFound();
-            }
-
-            return encuesta;
-        }
-
-        // PUT: api/Encuestas/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutEncuesta(int id, Encuesta encuesta)
-        {
-            if (id != encuesta.EncuestaId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(encuesta).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EncuestaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
+      
 
         // POST: api/Encuestas
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        
         [HttpPost]
-        public async Task<ActionResult<Encuesta>> PostEncuesta(Encuesta encuesta)
+        public async Task<ActionResult<Encuesta>> PostEncuesta(EncuestaCreateDTO model)
         {
           if (_context.Encuestas == null)
           {
               return Problem("Entity set 'ApplicationDbContext.Encuestas'  is null.");
           }
+            var encuesta = new Encuesta
+            {
+                fecharealizacion = model.fecharealizacion,
+                Pregunta1 = model.Pregunta1,
+                Pregunta2 = model.Pregunta2,
+                Pregunta3 = model.Pregunta3,
+                Pregunta4 = model.Pregunta4,
+                Pregunta5 = model.Pregunta5,
+                Pregunta6 = model.Pregunta6,
+                TipoTransporteId = model.TipoTransporteId,
+                UsuarioId = model.UsuarioId
+            };
             _context.Encuestas.Add(encuesta);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEncuesta", new { id = encuesta.EncuestaId }, encuesta);
+            return Ok();
         }
 
         // DELETE: api/Encuestas/5
