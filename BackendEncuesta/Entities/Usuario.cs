@@ -15,7 +15,7 @@ namespace BackendEncuesta.Entities
         public string contrasena { get; set; }
 
         public string trabaja { get; set;}
-        public string recuperar { get; set; }
+        
 
         public int ModalidadTrabajoId { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using Azure.Identity;
 using BackendEncuesta.DTO.AccountDTO;
+using BackendEncuesta.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -13,11 +14,11 @@ namespace BackendEncuesta.Controllers
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<UsersB> _userManager;
         private readonly IConfiguration _configuration;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<UsersB> _signInManager;
 
-        public AccountController(UserManager<IdentityUser> userManager, IConfiguration configuration, SignInManager<IdentityUser> signInManager )
+        public AccountController(UserManager<UsersB> userManager, IConfiguration configuration, SignInManager<UsersB> signInManager )
         {
             _userManager = userManager;
             _configuration = configuration;
@@ -27,7 +28,19 @@ namespace BackendEncuesta.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<AuthenticationResponse>> Register(UserCredentials userCredentials)
         {
-            var user = new IdentityUser { UserName = userCredentials.Email, Email = userCredentials.Email };
+            var user = new UsersB { 
+               
+                UserName = userCredentials.Email,
+                Email = userCredentials.Email,
+                nombres = userCredentials.nombres,
+                apellidos = userCredentials.apellidos,
+                rut = userCredentials.rut,
+                trabaja = userCredentials.trabaja,
+                ModalidadTrabajoId = userCredentials.ModalidadTrabajoId,
+                ComunaResidenciaId = userCredentials.ComunaResidenciaId,
+                EstadoId = userCredentials.EstadoId,
+                ComunaTrabajoId = userCredentials.ComunaTrabajoId
+            };
             var result = await _userManager.CreateAsync(user, userCredentials.Password);
             if (result.Succeeded)
             {

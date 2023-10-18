@@ -1,6 +1,8 @@
-﻿namespace BackendEncuesta.Entities
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace BackendEncuesta.Entities
 {
-    public class UsersB
+    public class UsersB : IdentityUser
     {
         public string nombres { get; set; }
         public string apellidos { get; set; }
@@ -8,8 +10,7 @@
         public string rut { get; set; }
 
         public string trabaja { get; set; }
-        public string recuperar { get; set; }
-
+       
         public int ModalidadTrabajoId { get; set; }
 
         public ModalidadTrabajo ModalidadTrabajo { get; set; }
