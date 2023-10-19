@@ -80,7 +80,7 @@ namespace BackendEncuesta.Controllers
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwtkey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expiration = DateTime.UtcNow.AddMinutes(1);
+            var expiration = DateTime.UtcNow.AddMinutes(60);
             var securityToken = new JwtSecurityToken(
                 issuer: null,
                 audience: null,

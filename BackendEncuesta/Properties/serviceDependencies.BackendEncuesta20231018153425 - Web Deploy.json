@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/BackendEncuesta20231018153425/providers/Microsoft.ServiceLinker/linkers/DefaultConnection_5B8E6601F3",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/backendencuestadbserver/databases/BackendEncuesta_db",
+      "type": "mssql.azure",
+      "connectionId": "DefaultConnection",
+      "dynamicId": null
+    }
+  }
+}
