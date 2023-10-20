@@ -1,9 +1,12 @@
-﻿using Azure.Identity;
+﻿using AutoMapper;
+using Azure.Identity;
+using BackendEncuesta.DTO;
 using BackendEncuesta.DTO.AccountDTO;
 using BackendEncuesta.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Validations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -17,35 +20,40 @@ namespace BackendEncuesta.Controllers
         private readonly UserManager<UsersB> _userManager;
         private readonly IConfiguration _configuration;
         private readonly SignInManager<UsersB> _signInManager;
+        private readonly IMapper _mapper;
 
-        public AccountController(UserManager<UsersB> userManager, IConfiguration configuration, SignInManager<UsersB> signInManager )
+        public AccountController(UserManager<UsersB> userManager, IConfiguration configuration, SignInManager<UsersB> signInManager, IMapper mapper )
         {
             _userManager = userManager;
             _configuration = configuration;
             _signInManager = signInManager;
+            _mapper = mapper;
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<AuthenticationResponse>> Register(UserCredentials userCredentials)
+        public async Task<ActionResult<AuthenticationResponse>> Register(UserRegister userRegister)
         {
             var user = new UsersB { 
                
-                UserName = userCredentials.Email,
-                Email = userCredentials.Email,
-                nombres = userCredentials.nombres,
-                apellidos = userCredentials.apellidos,
-                rut = userCredentials.rut,
-                trabaja = userCredentials.trabaja,
-                ModalidadTrabajoId = userCredentials.ModalidadTrabajoId,
-                ComunaResidenciaId = userCredentials.ComunaResidenciaId,
-                EstadoId = userCredentials.EstadoId,
-                ComunaTrabajoId = userCredentials.ComunaTrabajoId
+                UserName = userRegister.Email,
+                Email = userRegister.Email,
+                nombres = userRegister.nombres,
+                apellidos = userRegister.apellidos,
+                rut = userRegister.rut,
+                fechaNacimiento = userRegister.fechaNacimiento,
+                trabaja = userRegister.trabaja,
+                ModalidadTrabajoId = userRegister.ModalidadTrabajoId,
+                ComunaResidenciaId = userRegister.ComunaResidenciaId,
+                EstadoId = userRegister.EstadoId,
+                ComunaTrabajoId = userRegister.ComunaTrabajoId
             };
-            var result = await _userManager.CreateAsync(user, userCredentials.Password);
+            var result = await _userManager.CreateAsync(user, userRegister.Password);
+            var cred = _mapper.Map<UserCredentials>(userRegister);
+
             if (result.Succeeded)
             {
                 //Construir Token
-                return BuildToken(userCredentials);
+                return BuildToken(cred);
                    
             }
             else

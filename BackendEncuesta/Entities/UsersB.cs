@@ -9,7 +9,10 @@ namespace BackendEncuesta.Entities
 
         public string rut { get; set; }
 
+        public DateTime fechaNacimiento { get; set; }
+
         public string trabaja { get; set; }
+
        
         public int ModalidadTrabajoId { get; set; }
 
