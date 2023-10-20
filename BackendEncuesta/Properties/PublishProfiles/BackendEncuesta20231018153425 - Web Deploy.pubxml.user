@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
+edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfzf/T4olo0mdQc+AtfAOzAAAAAACAAAAAAAQZgAAAAEAACAAAADHCHLz16OZg9MXBb9y8sHx2isSGosIjzroPc0EflxNbAAAAAAOgAAAAAIAACAAAADuLHPjEgHnEAlRWEqL2eQslrCv1NyodV9C+Obz3u6qkoAAAABknBlJoIAOCm6B80CqCzfz/lLXswdadw1FwtdWNpAmvtGzWowL5FQnu2yQSrfsFRtEIv4FGFbM7Rr7gbvWU5PzwZD/zKr4eaGBap9lgPN9uFmMtjo/TaMrk0PulaZGEbuUSHOVidijlJVKDt4ryAlc1PMOU0EnjXPXXYck/udaOkAAAABG+sgTfldilFIuGcLK54KJhFGCniXJFnwbMwoGZ/PxaS3AHBRYDrrnX7cGjRug0MiMnx2KpH98gsBdiecyEpbJ</EncryptedPassword>
+    <History>True|2023-10-20T17:44:56.6268843Z;True|2023-10-20T14:38:48.2064729-03:00;True|2023-10-20T14:33:58.1129394-03:00;True|2023-10-20T14:03:25.8705115-03:00;True|2023-10-20T13:49:04.3303912-03:00;True|2023-10-20T13:28:11.3138469-03:00;True|2023-10-19T20:19:19.8088500-03:00;True|2023-10-19T20:01:30.8609715-03:00;True|2023-10-19T18:51:51.4646724-03:00;True|2023-10-18T23:05:38.9345850-03:00;True|2023-10-18T18:06:19.6519850-03:00;True|2023-10-18T18:04:00.0378996-03:00;True|2023-10-18T16:24:22.5119590-03:00;True|2023-10-18T16:20:28.5949756-03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="BackendEncuesta.ApplicationDbContext">
+      <Value>Data Source=backendencuestadbserver.database.windows.net,1433%3bInitial Catalog=BackendEncuesta_db%3bUser ID=usr_deploy%3bPassword=%40_Aldo1972</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
