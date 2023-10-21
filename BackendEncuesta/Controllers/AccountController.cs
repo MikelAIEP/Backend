@@ -5,6 +5,7 @@ using BackendEncuesta.DTO.AccountDTO;
 using BackendEncuesta.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Validations;
 using System.IdentityModel.Tokens.Jwt;
@@ -33,6 +34,13 @@ namespace BackendEncuesta.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<AuthenticationResponse>> Register(UserRegister userRegister)
         {
+           
+            var rutExists = await _userManager.Users.AnyAsync(u => u.rut == userRegister.rut);
+            if (rutExists)
+            {
+                return BadRequest("El Rut ya está registrado");
+            }
+
             var user = new UsersB { 
                
                 UserName = userRegister.Email,
@@ -66,6 +74,11 @@ namespace BackendEncuesta.Controllers
 
         public async Task<ActionResult<AuthenticationResponse>> Login(UserCredentials userCredentials)
         {
+            var user = await _userManager.FindByNameAsync(userCredentials.Email);
+            if (user.EstadoId == 1)
+            {
+                return BadRequest("Encuesta realizada");
+            }
             var result = await _signInManager.PasswordSignInAsync(userCredentials.Email, userCredentials.Password, isPersistent:false, lockoutOnFailure: false  );
             if (result.Succeeded)
             {
