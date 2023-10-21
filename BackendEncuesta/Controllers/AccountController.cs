@@ -91,6 +91,32 @@ namespace BackendEncuesta.Controllers
             }
         }
 
+        [HttpPut("update-state")]
+        public async Task<IActionResult> UpdateUserState(string username)
+        {
+            // Encuentra el usuario por su nombre de usuario
+            var user = await _userManager.FindByNameAsync(username);
+
+            if (user == null)
+            {
+                return NotFound("Usuario no encontrado");
+            }
+
+            // Establece el valor del campo EstadoId en 1
+            user.EstadoId = 1;
+            var result = await _userManager.UpdateAsync(user);
+
+            if (result.Succeeded)
+            {
+                return Ok("Estado de usuario actualizado con éxito");
+            }
+            else
+            {
+                return BadRequest(result.Errors);
+            }
+        }
+
+
         private AuthenticationResponse BuildToken(UserCredentials userCredentials)
         {
             var claims = new List<Claim>()
