@@ -64,10 +64,10 @@ builder.Services.AddIdentity<UsersB, IdentityRole>()
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowLocalhost8101",
+    options.AddPolicy("AllowALL",
         builder =>
         {
-            builder.WithOrigins("http://localhost:8101")
+            builder.WithOrigins()
                    .AllowAnyHeader()
                    .AllowAnyMethod();
         });
@@ -83,15 +83,14 @@ if (app.Environment.IsDevelopment())
 }
 app.UseSwagger();
 app.UseSwaggerUI();
-
 app.UseHttpsRedirection();
-
-//app.UseCors();
-app.UseCors("AllowLocalhost8101");
+app.UseAuthentication();
+app.UseRouting();
+app.UseCors("AllowALL");
 
 app.UseAuthorization();
 
-app.UseAuthentication();
+
 
 
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z1Fkqe6DguS2a4M9A+wS7SnjMCrgNKWqxkLXmiLYnpIihqzC9PDYhuGmqd53PPvAfqZpQ4YCFb98zYR2/UMl3w==",
+  "dgSpecHash": "a0PIjUJn2vzjQNneImtqqROnEUatXEeVGB/uwDzbU4wcNmvS+7At6pfqfdWhUhJ1YhRwCoNyNia8MIbpvqaYTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mik10\\Source\\Repos\\MikelAIEP\\BackendEncuesta\\BackendEncuesta\\BackendEncuesta.csproj",
+  "projectFilePath": "C:\\Users\\mik10\\source\\repos\\MikelAIEP\\BackendEncuesta\\BackendEncuesta\\BackendEncuesta.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mik10\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\mik10\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

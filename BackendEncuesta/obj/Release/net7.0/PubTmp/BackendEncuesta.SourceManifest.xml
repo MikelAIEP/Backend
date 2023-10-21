@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="C:\Users\mik10\Source\Repos\MikelAIEP\BackendEncuesta\BackendEncuesta\obj\Release\net7.0\PubTmp\Out\" />
-  <dbfullsql path="C:\Users\mik10\Source\Repos\MikelAIEP\BackendEncuesta\BackendEncuesta\obj\Release\net7.0\PubTmp\EFSQLScripts\BackendEncuesta.ApplicationDbContext.sql" />
+  <IisApp path="C:\Users\mik10\source\repos\MikelAIEP\BackendEncuesta\BackendEncuesta\obj\Release\net7.0\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\mik10\source\repos\MikelAIEP\BackendEncuesta\BackendEncuesta\obj\Release\net7.0\PubTmp\EFSQLScripts\BackendEncuesta.ApplicationDbContext.sql" />
 </sitemanifest>

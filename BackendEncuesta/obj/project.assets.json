@@ -12125,11 +12125,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mik10\\Source\\Repos\\MikelAIEP\\BackendEncuesta\\BackendEncuesta\\BackendEncuesta.csproj",
+      "projectUniqueName": "C:\\Users\\mik10\\source\\repos\\MikelAIEP\\BackendEncuesta\\BackendEncuesta\\BackendEncuesta.csproj",
       "projectName": "BackendEncuesta",
-      "projectPath": "C:\\Users\\mik10\\Source\\Repos\\MikelAIEP\\BackendEncuesta\\BackendEncuesta\\BackendEncuesta.csproj",
+      "projectPath": "C:\\Users\\mik10\\source\\repos\\MikelAIEP\\BackendEncuesta\\BackendEncuesta\\BackendEncuesta.csproj",
       "packagesPath": "C:\\Users\\mik10\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mik10\\Source\\Repos\\MikelAIEP\\BackendEncuesta\\BackendEncuesta\\obj\\",
+      "outputPath": "C:\\Users\\mik10\\source\\repos\\MikelAIEP\\BackendEncuesta\\BackendEncuesta\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mik10\\AppData\\Roaming\\NuGet\\NuGet.Config",
