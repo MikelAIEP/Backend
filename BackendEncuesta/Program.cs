@@ -64,12 +64,14 @@ builder.Services.AddIdentity<UsersB, IdentityRole>()
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowALL",
+    options.AddDefaultPolicy(
         builder =>
         {
-            builder.WithOrigins()
+            builder
+                    .AllowAnyOrigin()
                    .AllowAnyHeader()
                    .AllowAnyMethod();
+                   
         });
 });
 
@@ -84,9 +86,10 @@ if (app.Environment.IsDevelopment())
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
+app.UseCors();
 app.UseAuthentication();
 app.UseRouting();
-app.UseCors("AllowALL");
+
 
 app.UseAuthorization();
 
